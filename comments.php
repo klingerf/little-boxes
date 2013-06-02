@@ -1,57 +1,57 @@
 <?php // Do not delete these lines
-	if ('comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-		die ('Please do not load this page directly. Thanks!');
+  if ('comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
+    die ('Please do not load this page directly. Thanks!');
 
-	if (!empty($post->post_password)) { // if there's a password
-		if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) {  // and it doesn't match the cookie
-			?>
+  if (!empty($post->post_password)) { // if there's a password
+    if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) {  // and it doesn't match the cookie
+      ?>
 
-			<p class="nocomments">This post is password protected. Enter the password to view comments.</p>
+      <p class="nocomments">This post is password protected. Enter the password to view comments.</p>
 
-			<?php
-			return;
-		}
-	}
+      <?php
+      return;
+    }
+  }
 
-	/* This variable is for alternating comment background */
-	$oddcomment = 'class="alt" ';
+  /* This variable is for alternating comment background */
+  $oddcomment = 'class="alt" ';
 ?>
 
 <!-- You can start editing here. -->
 
 <?php if ('open' == $post->comment_status) : ?>
 
-	<div class="box commentform">
-		
-	<h3>Leave a message</h3>
+  <div class="box commentform">
 
-	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+  <h3>Leave a message</h3>
 
-	<?php if ( $user_ID ) : ?>
+  <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
 
-	<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></p>
+  <?php if ( $user_ID ) : ?>
 
-	<?php else : ?>
+  <p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></p>
 
-	<label for="author" class="required">Name</label>
-	<input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" tabindex="1" />
+  <?php else : ?>
 
-	<label for="email" class="required">Email</label>
-	<input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" tabindex="2" />
+  <label for="author" class="required">Name</label>
+  <input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" tabindex="1" />
 
-	<label for="url">Website</label>
-	<input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" tabindex="3" />
+  <label for="email" class="required">Email</label>
+  <input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" tabindex="2" />
 
-	<?php endif; ?>
+  <label for="url">Website</label>
+  <input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" tabindex="3" />
 
-	<textarea name="comment" id="comment" tabindex="4" rows="20" cols="80"></textarea>
+  <?php endif; ?>
 
-	<input name="submit" type="submit" id="submit" tabindex="5" value="Submit" />
-	<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
+  <textarea name="comment" id="comment" tabindex="4" rows="20" cols="80"></textarea>
 
-	<?php do_action('comment_form', $post->ID); ?>
+  <input name="submit" type="submit" id="submit" tabindex="5" value="Submit" />
+  <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
 
-	</form>
+  <?php do_action('comment_form', $post->ID); ?>
+
+  </form>
 
 </div>
 
@@ -60,22 +60,22 @@
 
 <?php if ($comments) : ?>
 
-	<?php foreach ($comments as $comment) : ?>
+  <?php foreach ($comments as $comment) : ?>
 
-		<div class="box comment" id="comment-<?php comment_ID() ?>">
-			
-			<h5><a href="#comment-<?php comment_ID() ?>"><?php comment_date('m-d-Y') ?></a> <?php edit_comment_link('edit','&nbsp;&nbsp;',''); ?></h5>
+    <div class="box comment" id="comment-<?php comment_ID() ?>">
 
-			<h3><?php comment_author_link() ?> says:</h3>
-			<?php if ($comment->comment_approved == '0') : ?>
-			<p><em>Your comment is awaiting moderation.</em></p>
-			<?php endif; ?>
+      <h5><a href="#comment-<?php comment_ID() ?>"><?php comment_date('m-d-Y') ?></a> <?php edit_comment_link('edit','&nbsp;&nbsp;',''); ?></h5>
 
-			<?php comment_text() ?>
+      <h3><?php comment_author_link() ?> says:</h3>
+      <?php if ($comment->comment_approved == '0') : ?>
+      <p><em>Your comment is awaiting moderation.</em></p>
+      <?php endif; ?>
 
-		</div>
+      <?php comment_text() ?>
 
-	<?php endforeach; /* end for each comment */ ?>
+    </div>
+
+  <?php endforeach; /* end for each comment */ ?>
 
 <?php endif; ?>
 

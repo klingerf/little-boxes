@@ -1,11 +1,11 @@
-	<div id="categories">
-		<ul>
-			<li>
-				<?php include (TEMPLATEPATH . '/searchform.php'); ?>
-			</li>
+  <div id="categories">
+    <ul>
+      <li>
+        <?php include (TEMPLATEPATH . '/searchform.php'); ?>
+      </li>
 
-			<?php wp_list_categories(); ?>
+      <?php wp_list_categories(); ?>
 
-		</ul>
-	</div>
+    </ul>
+  </div>
 
