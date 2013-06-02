@@ -1,5 +1,9 @@
 <?php wp_footer(); ?>
 <div id="footer">
+  <div class="box category bg1">
+    <h2>Categories</h2>
+    <p><?php wp_list_categories('title_li=&exclude=3,6,110&style=none'); ?></p>
+  </div>
   <div class="box">
     <div><a href="http://wordpress.org"><img src="<?php bloginfo('template_directory'); ?>/images/wp.png" alt="WordPress" /></a></div>
     <p>Powered by <a href="http://wordpress.org/">WordPress</a>. <br />Protected by <a href="http://akismet.com/">Akismet</a>.</p>

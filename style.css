@@ -395,6 +395,10 @@ div.gallery-icon a img {
   font-size: 10px;
 }
 
+#footer .category p {
+  font-size: 16px;
+}
+
 #footer img {
   border: none;
 }
