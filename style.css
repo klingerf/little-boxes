@@ -136,10 +136,15 @@ pre {
 
 /* Category styles */
 
+.category h1 {
+  margin: 11px 0 15px 0;
+  height: 24px;
+}
+
 .category p {
   margin-top: 20px;
   line-height: 20px;
-  font-size: 16px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 #category-list .post {

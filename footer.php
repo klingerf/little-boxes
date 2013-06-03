@@ -1,7 +1,7 @@
 <?php wp_footer(); ?>
 <div id="footer">
   <div class="box category bg1">
-    <h2>Categories</h2>
+    <h1>Categories</h1>
     <p><?php wp_list_categories('title_li=&exclude=3,6,110&style=none'); ?></p>
   </div>
   <div class="box">
